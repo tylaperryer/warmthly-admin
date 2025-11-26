@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#fff6f1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.75, user-scalable=yes" />
+  <title>404 - Warmthly</title>
+  
+  <!-- Favicon Set for All Devices -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/candle-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/candle-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/candle-apple.png">
+  <style>
+    /* Inline critical CSS for faster rendering */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* --- FONT DEFINITIONS --- */
+    /* --- ANTI-FLASH AND PERFORMANCE FIXES --- */
+    :root { color-scheme: light; }
+    html { background-color: #fff6f1; min-height: 100%; }
+    body { opacity: 0; visibility: hidden; transition: opacity 0.3s ease-in-out; }
+    body.fonts-loaded { opacity: 1; visibility: visible; }
+    /* --- END ANTI-FLASH FIXES --- */
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/fonts/CormorantGaramond-VariableFont_wght.ttf') format('truetype');
+    }
+    
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: italic;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+    }
+    
+    html {
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar {
+      display: none;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      color: #2c2c2c;
+      background: #fff6f1;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    
+    ::selection {
+      background: #FF8C42;
+      color: #FFFFFF;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 140, 66, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 182, 193, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 40% 70%, rgba(173, 216, 230, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(144, 238, 144, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #fff6f1 0%, #ffeee6 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 120px 30px 60px;
+      color: #2c2c2c;
+      position: relative;
+      text-align: center;
+    }
+    
+    .top-left-heading {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #FF8C42;
+      user-select: none;
+      z-index: 1001;
+    }
+    .top-left-heading .warmthly-link {
+      text-decoration: none;
+      color: #FF8C42;
+    }
+    
+    /* Stoplight Menu Styles */
+    .stoplight-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1002;
+    }
+    
+    .stoplight {
+      --tint-color: rgba(255, 255, 255, 0.15);
+      --blur-radius: 12px;
+      --border-color: rgba(255, 255, 255, 0.25);
+      --highlight-color: rgba(255, 255, 255, 0.4);
+      --shadow-color: rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      cursor: pointer;
+      padding: 8px;
+      position: relative;
+      background: var(--tint-color);
+      backdrop-filter: blur(var(--blur-radius)) saturate(1.2);
+      -webkit-backdrop-filter: blur(var(--blur-radius)) saturate(1.2);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 
+        0 6px 12px var(--shadow-color),
+        inset 0 1px 1px var(--highlight-color),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+    }
+    
+    .stoplight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .stoplight:hover, .stoplight.active {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stoplight:hover::before, .stoplight.active::before {
+      opacity: 1;
+    }
+    
+    .stoplight-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: relative;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      z-index: 2;
+      opacity: 0.3;
+    }
+    .stoplight-dot.red { background: #ff4757; }
+    .stoplight-dot.yellow { background: #FF8C42; }
+    .stoplight-dot.green { background: #2ed573; }
+    
+    .stoplight-container:hover .stoplight-dot.red, .stoplight.active .stoplight-dot.red { animation: stoplight-cycle-red 10s cubic-bezier(0.25, 0.8, 0.25, 1) infinite; }
+    .stoplight-container:hover .stoplight-dot.green, .stoplight.active .stoplight-dot.green { animation: stoplight-cycle-green 10s cubic-bezier(0.25, 0.8, 0.25, 1) infinite; }
+    .stoplight-container:hover .stoplight-dot.yellow, .stoplight.active .stoplight-dot.yellow { animation: stoplight-cycle-yellow 10s cubic-bezier(0.25, 0.8, 0.25, 1) infinite; }
+
+    @keyframes stoplight-cycle-red { 0%, 33.33% { opacity: 1; } 33.34%, 100% { opacity: 0.3; } }
+    @keyframes stoplight-cycle-green { 0%, 33.33% { opacity: 0.3; } 33.34%, 66.66% { opacity: 1; } 66.67%, 100% { opacity: 0.3; } }
+    @keyframes stoplight-cycle-yellow { 0%, 66.66% { opacity: 0.3; } 66.67%, 100% { opacity: 1; } }
+    
+    .dropdown-menu {
+      --tint-color: rgba(255, 255, 255, 0.15);
+      --blur-radius: 12px;
+      --border-color: rgba(255, 255, 255, 0.25);
+      --highlight-color: rgba(255, 255, 255, 0.4);
+      --shadow-color: rgba(0, 0, 0, 0.08);
+      --text-color: #1c2526;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: var(--tint-color);
+      backdrop-filter: blur(var(--blur-radius)) saturate(1.2);
+      -webkit-backdrop-filter: blur(var(--blur-radius)) saturate(1.2);
+      border-radius: 18px;
+      padding: 8px;
+      margin-top: 12px;
+      min-width: 200px;
+      box-shadow: 0 8px 32px var(--shadow-color), inset 0 1px 1px var(--highlight-color), inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px) scale(0.94);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+    
+    .dropdown-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    
+    .dropdown-item {
+      display: block;
+      padding: 12px 16px;
+      margin: 2px 0;
+      color: var(--text-color);
+      text-decoration: none;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(255, 140, 66, 0.15);
+      color: #FF8C42;
+    }
+    
+    .big-404 {
+      font-family: 'Inter', sans-serif;
+      font-size: 8rem;
+      font-weight: 600;
+      color: #FF8C42;
+      margin-bottom: 1rem;
+      user-select: none;
+      position: relative;
+    }
+    
+    .page-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      color: #FF8C42;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      color: #2c2c2c;
+      opacity: 0.8;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+    
+    .music-section {
+      background: linear-gradient(135deg, rgba(255, 140, 66, 0.08), rgba(255, 140, 66, 0.03));
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      border: 1px solid rgba(255, 140, 66, 0.15);
+    }
+    
+    .music-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.4rem;
+      color: #FF8C42;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .music-description {
+      color: #2c2c2c;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+    
+    .spotify-embed {
+      margin: 0 auto;
+      max-width: 100%;
+      box-shadow: 0 8px 25px rgba(255, 140, 66, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .navigation-help {
+      margin: 3rem 0;
+    }
+    
+    .nav-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.3rem;
+      color: #FF8C42;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .nav-button {
+      padding: 1rem 2rem;
+      border: 1px solid #FF8C42;
+      border-radius: 12px;
+      background: transparent;
+      color: #FF8C42;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .nav-button:hover {
+      background: #FF8C42;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 140, 66, 0.2);
+    }
+    
+    .nav-button:active {
+      transform: translateY(0px) scale(0.98);
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 100px 20px 40px;
+      }
+      .top-left-heading {
+        font-size: 1.6rem;
+        top: 15px;
+        left: 15px;
+      }
+      .stoplight-container {
+        top: 15px;
+        right: 15px;
+      }
+      .dropdown-menu {
+        min-width: 180px;
+      }
+      .big-404 {
+        font-size: 5rem;
+      }
+      .page-title {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      .music-section {
+        padding: 2rem 1.5rem;
+      }
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-button {
+        min-width: 250px;
+      }
+    }
+    
+    /* Preload critical resources */
+    .preload-fonts {
+      font-family: 'Cormorant Garamond';
+      font-family: 'Inter';
+      visibility: hidden;
+      position: absolute;
+    }
+  </style>
+  
+  
+  <!-- DNS prefetch for external domains -->
+  <link rel="dns-prefetch" href="//warmthly.org">
+</head>
+<body class="fonts-loading">
+  <div class="preload-fonts"></div>
+  
+  <div class="top-left-heading">
+    <a href="https://www.warmthly.org" class="warmthly-link">Warmthly</a>
+  </div>
+  
+  <div class="stoplight-container">
+    <div class="stoplight" id="stoplight">
+      <div class="stoplight-dot red"></div>
+      <div class="stoplight-dot yellow"></div>
+      <div class="stoplight-dot green"></div>
+    </div>
+    
+    <div class="dropdown-menu" id="dropdown-menu">
+      <a href="https://www.warmthly.org" class="dropdown-item">Home</a>
+      <a href="https://transparency.warmthly.org" class="dropdown-item">Transparency</a>
+      <a href="https://post.warmthly.org" class="dropdown-item">Post</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="big-404">404</div>
+    <h1 class="page-title">This page went on a little adventure.</h1>
+    <p class="subtitle">
+      It seems the page you were looking for has wandered off.
+    </p>
+    
+    <div class="music-section">
+      <h3 class="music-title">An Unexpected Interlude</h3>
+      <p class="music-description">
+        Sometimes getting lost leads to exactly what we need to hear. Here’s a song for this quiet moment.
+      </p>
+      <div class="spotify-embed">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3G69U3e9pdEdrD1yUkpWuZ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+    
+    <div class="navigation-help">
+      <h3 class="nav-title">Let's find your way.</h3>
+      <div class="nav-buttons">
+        <a href="https://www.warmthly.org" class="nav-button">Return Home</a>
+        <button class="nav-button" onclick="window.history.back( )">Go Back</button>
+      </div>
+    </div>
+    
+  </div>
+  
+  <script>
+    // Stoplight menu functionality
+    const stoplight = document.getElementById('stoplight');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    let isMenuOpen = false;
+    
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      stoplight.classList.toggle('active', isMenuOpen);
+      dropdownMenu.classList.toggle('active', isMenuOpen);
+    }
+    
+    stoplight.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (!stoplight.contains(e.target) && !dropdownMenu.contains(e.target) && isMenuOpen) {
+        toggleMenu();
+      }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        toggleMenu();
+      }
+    });
+    
+    dropdownMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  </script>
+  
+  <script>
+    // --- NATIVE FONT LOADING ---
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        document.body.classList.remove('fonts-loading');
+        document.body.classList.add('fonts-loaded');
+      });
+      
+      // Fallback timeout
+      setTimeout(() => {
+        document.body.classList.remove('fonts-loading');
+        document.body.classList.add('fonts-loaded');
+      }, 3000);
+    } else {
+      // Fallback for older browsers
+      document.body.classList.remove('fonts-loading');
+      document.body.classList.add('fonts-loaded');
+    }
+    // --- END FONT LOADING ---
+  </script>
+</body>
+</html>
