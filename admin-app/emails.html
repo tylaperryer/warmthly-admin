@@ -126,28 +126,28 @@
     }
 
     /* Header */
-    .header {
+    .top-left-heading {
       position: fixed;
       top: 20px;
       left: 20px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--warmthly-orange);
+      user-select: none;
       z-index: 1001;
     }
-    .brand-logo { 
-      font-family: 'Inter', sans-serif; 
-      font-weight: 600; 
-      font-size: 2rem; 
-      color: var(--warmthly-orange); 
-      user-select: none; 
-      text-decoration: none; 
+    .top-left-heading .warmthly-link {
+      text-decoration: none;
+      color: var(--warmthly-orange);
+    }
+    .top-left-heading .admin-text {
+      color: var(--warmthly-orange);
+      text-decoration: none;
       transition: color 0.3s ease;
     }
-    .brand-logo:hover {
+    .top-left-heading .admin-text:hover {
       color: #e07a35;
-    }
-    .admin-text {
-      color: rgba(44, 44, 44, 0.7);
-      font-weight: 400;
-      margin-left: 0.5rem;
     }
     
     /* Stoplight Menu */
@@ -621,6 +621,11 @@
     }
 
     @media (max-width: 768px) {
+      .top-left-heading {
+        font-size: 1.6rem;
+        top: 15px;
+        left: 15px;
+      }
       .admin-content {
         padding: 100px 15px 30px;
       }
@@ -644,8 +649,8 @@
 </head>
 <body class="fonts-loading">
   <!-- Header -->
-  <header class="header">
-    <a href="/" class="brand-logo">Warmthly<span class="admin-text">Admin</span></a>
+  <header class="top-left-heading">
+    <a href="https://www.warmthly.org" class="warmthly-link">Warmthly</a> <a href="/admin" class="admin-text">Admin</a>
   </header>
   
   <div class="stoplight-container">
